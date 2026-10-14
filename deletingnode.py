@@ -1,14 +1,15 @@
 class Node:
-    def __init__(self, val):
-        self.data = val
-        self.next = None   # इथे error fix
+    def __init__(self, value):
+        self.data = value
+        self.next = None
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def append(self, new_node):
-        if self.head is None:
+    def create(self, new_node):
+        if self.head == None:
             self.head = new_node
         else:
             temp = self.head
@@ -16,48 +17,121 @@ class LinkedList:
                 temp = temp.next
             temp.next = new_node
 
-    def print_list(self):
+    def insert(self, new_node, pos):
+        if pos == 1:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            p = 1
+            temp = self.head
+            while p != pos - 1:
+                temp = temp.next
+                p += 1
+            new_node.next = temp.next
+            temp.next = new_node
+
+    def delete(self, value):
         temp = self.head
-        while temp:
-            print(temp.data, end=" -> ")
-            temp = temp.next
-        print("None")
+        prev = None
 
-    def find_middle(self):
-        slow = self.head
-        fast = self.head
-        while fast and fast.next:
-            slow = slow.next
-            fast = fast.next.next
-        return slow
+        if temp == None:
+            print("List is empty")
+            return
 
-    def delete_middle(self):
-        if self.head is None or self.head.next is None:
+        if temp.data == value:
+            self.head = temp.next
+        else:
+            while temp and temp.data != value:
+                prev = temp
+                temp = temp.next
+
+            if temp == None:
+                print("Value not present")
+                return
+
+            prev.next = temp.next
+            temp = None
+    
+    def Del_first(self):
+        if self.head is None:
+            return
+            self.head=self.head.next
+
+    def Del_Last(self):
+        if self.head is None:
+            return
+
+        if self.head.next is None:
             self.head = None
             return
+        temp = self.head
+
+        while temp.next.next:
+            temp = temp.next
+
+        temp.next = None
+
+
+
+    def middle(self):
         slow = self.head
         fast = self.head
-        prev = None
+
         while fast and fast.next:
-            prev = slow
             slow = slow.next
             fast = fast.next.next
-        prev.next = slow.next   # middle delete
 
-# Example usage
-ll = LinkedList()
-ll.append(Node(10))
-ll.append(Node(20))
-ll.append(Node(30))
-ll.append(Node(40))
-ll.append(Node(50))
+        if slow:
+            print("middle node: " ,slow.data)
 
-print("Original List:")
-ll.print_list()
+    def reverse(self):
+        prev = None
+        temp = self.head
 
-middle = ll.find_middle()
-print("Middle node value:", middle.data)
+        while temp:
+            next_node = temp.next
+            temp.next = prev
+            prev = temp
+            temp = next_node
 
-ll.delete_middle()
-print("After deleting middle node:")
-ll.print_list()
+        self.head = prev
+
+    def consecutive_sum(self):
+        temp = self.head
+
+        while temp and temp.next:
+            print("sum: ",temp.data + temp.next.data)
+            temp = temp.next
+
+    
+
+    def print(self):
+        print("list of elements: ")
+        temp = self.head
+
+        while temp:
+            print("displaying: ",temp.data)
+            temp = temp.next
+
+
+list1 = LinkedList()
+
+n1 = Node(10)
+n2 = Node(20)
+
+list1.create(n1)
+list1.create(n2)
+list1.create(Node(30))
+
+list1.insert(Node(53), 3)
+
+# list1.delete(10)
+
+list1.middle()
+list1.reverse()
+list1.consecutive_sum()
+list1.Del_first()
+list1.Del_Last()
+list1.print()
+
+#basic moperation of SLL+more operations
