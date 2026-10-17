@@ -30,4 +30,15 @@ for i in range(0,len(val)):
 print('\n')
 val.pop()    
 for i in range(0,len(val)):
-    print(val[i], end=" ")                       
+    print(val[i], end=" ")           #o/p:- 1 50 200 4 5 6 7 8 9   (removes last element)      
+
+
+#Remove
+print('\n')
+val.remove(4)
+for i in range(0,len(val)):
+    print(val[i], end=" ")          #O/P:-1 50 200 5 6 7 8 9 
+
+
+
+    
