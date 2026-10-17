@@ -25,3 +25,9 @@ print('\n')
 val.pop(3)    
 for i in range(0,len(val)):
     print(val[i], end=" ")    #o/p :- 1 50 200 4 5 6 7 8 9 100  (removing an element)
+
+                   #OR
+print('\n')
+val.pop()    
+for i in range(0,len(val)):
+    print(val[i], end=" ")                       
