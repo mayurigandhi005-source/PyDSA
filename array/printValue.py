@@ -24,3 +24,5 @@ print(val.typecode)    # O/P:- i
 val.reverse()
 for i in range(0,len(val)):
     print(val[i], end=" ")   #o/p:- 9,8,7,6,5,4,3,2,1
+
+
