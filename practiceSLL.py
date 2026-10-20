@@ -20,7 +20,21 @@ class SLL:
     def insertAtBeg(self,value):
         temp = Node(value)
         temp.next = self.head 
-        self.head = temp            
+        self.head = temp   
+
+
+    def insertInMid(self,value,x):
+        temp=Node(value)
+        a = self.head
+
+        while(a.next != None):
+            if(a.data == x):
+                temp.next = a.next
+                a.next = temp
+            a = a.next    
+
+
+
 
     def print(self):
         a = self.head
@@ -35,6 +49,7 @@ list.insertAtEnd(10)
 list.insertAtEnd(20)
 list.insertAtEnd(30)
 list.insertAtBeg(5)
+list.insertInMid(19,20)
 list.print()
 
 
