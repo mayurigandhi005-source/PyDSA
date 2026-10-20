@@ -15,7 +15,12 @@ class SLL:
                 a = a.next
             a.next = temp
         else:
-            self.head = temp     
+            self.head = temp 
+
+    def insertAtBeg(self,value):
+        temp = Node(value)
+        temp.next = self.head 
+        self.head = temp            
 
     def print(self):
         a = self.head
@@ -29,6 +34,7 @@ list = SLL()
 list.insertAtEnd(10)
 list.insertAtEnd(20)
 list.insertAtEnd(30)
+list.insertAtBeg(5)
 list.print()
 
 
