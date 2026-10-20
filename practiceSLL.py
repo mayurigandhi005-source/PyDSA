@@ -33,6 +33,18 @@ class SLL:
                 a.next = temp
             a = a.next    
 
+    def deletell(self,value):
+        a = self.head
+        prev = a
+        if(a.data == value):
+            self.head = a.next
+        while(a.next != None):
+            if(a.data == value):
+                prev.next = a.next
+                break
+            else:
+                prev = a
+                a = a.next        
 
 
 
@@ -50,6 +62,7 @@ list.insertAtEnd(20)
 list.insertAtEnd(30)
 list.insertAtBeg(5)
 list.insertInMid(19,20)
+list.deletell(20)
 list.print()
 
 
