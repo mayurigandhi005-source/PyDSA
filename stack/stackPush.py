@@ -11,6 +11,8 @@ class stack:
     def push(self,new_node):
         new_node.next=self.top
         self.top=new_node
+
+        
     def print(self):
         if self.isempty():
             print("stack is empty..")
