@@ -14,9 +14,14 @@ class Lqueue:
             self.front=self.rear=new_node
 
     def dequeue(self):
-        temp=self.frontprint("deleted node" , temp.data)
+        temp=self.front
+        print("deleted node" , temp.data)
         self.front=self.front.next
-        temp=None        
+        if self.front==None:
+            print ("queue is empty")
+            self.rear=None
+        temp=None    
+               
 
     def print(self):
         temp=self.front
@@ -30,4 +35,9 @@ que.enqueue(Node(63))
 que.enqueue(Node(78))                            
 que.enqueue(Node(93))                            
 que.enqueue(Node(24))  
-que.print()  
+que.print() 
+que.dequeue() 
+que.dequeue() 
+que.dequeue() 
+que.dequeue() 
+que.print()
