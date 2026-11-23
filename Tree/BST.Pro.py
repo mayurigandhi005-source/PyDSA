@@ -32,7 +32,8 @@ class BST:
         else:
             self.inorder(rt.left)
             print(rt.data, end=" ")
-            self.cnt+=1
+            if rt.left is not None or rt.right is not None:
+                self.cnt+=1
             self.inorder(rt.right)
     def preorder(self, rt):
         if rt is None:
@@ -57,6 +58,8 @@ class BST:
         while temp.right:
             temp=temp.right
         print("\nMax: ", temp.data)
+  
+
 
     
 
@@ -67,6 +70,7 @@ b1.insert(Node(450))
 b1.insert(Node(4))
 b1.insert(Node(65))
 b1.insert(Node(300))
+b1.insert(Node(70))
 print("\nInorder: ")
 b1.inorder(b1.root)
 print("\nNo of nodes: ",b1.cnt)
