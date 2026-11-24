@@ -59,7 +59,7 @@ class BST:
             temp=temp.right
         print("\nMax: ", temp.data)
   
-
+#find no.of node left subtree and right subTree
 
     
 
